@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <!-- Inclure le lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+    body {
+        padding-top: 20px;
+        /* Utilisation d'une image comme arrière-plan et d'une couleur de fond */
+        background-image: url('bg.jpg') no-repeat center center fixed;
+        background-size: cover; /* Ajustement de la taille de l'image */
+		background:#D4ECF2;
+    }
+
+    .navbar {
+        background-color: #f8f9fa; /* Couleur de fond */
+        border-bottom: 1px solid #e9ecef; /* Ligne de séparation */
+        padding: 15px 0; /* Espacement autour du menu */
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem; /* Taille du texte du logo */
+        font-weight: bold; /* Gras pour le logo */
+    }
+
+    .navbar-nav {
+        width: 100%; /* Prend toute la largeur disponible */
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%; /* Prend toute la largeur disponible */
+        text-align: center; /* Centrer le texte */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 0; /* Espacement vertical des liens */
+    }
+    button{
+        background:#0753B9;
+        weight: 5px;
+        
+    }
+	</style>
+</head>
+<body>
+    {% comment %} <img src="bl.png" style="width:500px;height:600px;"> {% endcomment %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">ALLOCATION</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="/inscription/">Page d'Inscription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/creer_cours/">Page de Cours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cours/">Cours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/creer_cours/">Créer un Cours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/liste-taches/">Détails du Cours</a>
+                </li>
+                <li>
+                   <button> <a href="/connexion/" id="login-button">Connexion</a></button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Inclure les scripts Bootstrap JavaScript (jQuery et Popper.js requis) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

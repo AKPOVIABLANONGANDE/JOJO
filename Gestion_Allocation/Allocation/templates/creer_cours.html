@@ -1,0 +1,60 @@
+<!-- Template pour créer un cours -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% comment %} <h2>Créer un nouveau cours</h2>
+<form method="POST" action="{% url 'creer_cours' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Créer le cours</button>
+</form> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Créer un Cours</title>
+    <!-- Inclure le lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        
+        
+        body {
+            background-color: #269BA4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button[type="submit"] {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2><strong>Créer un nouveau cours</strong></h2>
+    <form method="POST" action="{% url 'creer_cours' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Créer le cours</button>
+    </form>
+</div>
+
+<!-- Inclure les scripts Bootstrap JavaScript (jQuery et Popper.js requis) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

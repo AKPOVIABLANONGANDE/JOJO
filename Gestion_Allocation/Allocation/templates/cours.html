@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Cours en Cours</title>
+    <!-- Inclure le lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            text-align: center;
+        
+        }
+
+        h2 {
+            margin-bottom: 50px;
+            color: #EAC313;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-weight: bold;
+        }
+
+        .teacher-name {
+            color: #555;
+        }
+
+        .action-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .action-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Ajout de styles pour le pied de page */
+        .footer {
+            text-align: center;
+            margin-top: 550px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Liste des cours en cours</h2>
+    <ul>
+        {% for cours in cours_en_cours %}
+            <li>
+                <span class="course-title">{{ cours.titre }}</span> - Enseignant : <span class="teacher-name">{{ cours.enseignant.nom }}</span>
+                {% if utilisateur.is_authenticated and utilisateur.role == 'enseignant' %}
+                    <a href="{% url 'mise_a_jour_profil' %}" class="action-link">Mettre à jour mon profil</a>
+                {% endif %}
+                <ul>
+                    <li><a href="{% url 'details_cours' cours.id %}" class="action-link">Voir les détails</a></li>
+                    <ul>
+                        {% for soumission in cours.soumission_set.all %}
+                            {% if utilisateur.is_authenticated and utilisateur.role == 'enseignant' %}
+                                <li>
+                                    <a href="{% url 'autoriser_et_noter_soumission' soumission.id %}" class="action-link">Autoriser et Noter Soumission</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </li>
+        {% empty %}
+            <li>Aucun cours en cours.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Pied de page -->
+<div class="footer">
+    © 2023 Ma société. Tous droits réservés.
+</div>
+
+<!-- Inclure les scripts Bootstrap JavaScript (jQuery et Popper.js requis) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

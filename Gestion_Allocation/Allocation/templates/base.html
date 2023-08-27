@@ -1,0 +1,26 @@
+<!-- myapp/templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}ALLOCATION {% endblock %}</title>
+{% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Inclure la page de menu -->
+            {% include "menu.html" %}
+        </div>
+        <div class="col-md-9">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

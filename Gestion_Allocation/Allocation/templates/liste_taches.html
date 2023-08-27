@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Tâches Autorisées</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Liste des tâches autorisées</h2>
+        {% for tache in taches %}
+            <h3>Tâche {{ forloop.counter }} {{ tache.titre }}</h3>
+            <p><strong>Étudiant :</strong> {{ tache.etudiant.nom }}</p>
+            <p><strong>Matière :</strong> {{ tache.matiere }}</p>
+            <p><strong>Statut :</strong> {{ tache.statut }}</p>
+            <!-- Afficher d'autres informations sur la tâche -->
+            <a href="{{ tache.fichier.url }}" download class="btn btn-primary">Télécharger la tâche</a>
+        {% endfor %}
+    </div>
+</body>
+</html>
